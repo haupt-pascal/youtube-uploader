@@ -12,7 +12,6 @@ import puppeteer from 'puppeteer-extra'
 import { PuppeteerNodeLaunchOptions, Browser, Page, ElementHandle } from 'puppeteer'
 import fs from 'fs-extra'
 import path from 'path'
-
 const StealthPlugin = require('puppeteer-extra-plugin-stealth')()
 StealthPlugin.enabledEvasions.delete('iframe.contentWindow')
 StealthPlugin.enabledEvasions.delete('navigator.plugins')
@@ -22,7 +21,7 @@ const maxTitleLen = 100
 const maxDescLen = 5000
 
 const timeout = 60000
-const height = 1280
+const height = 900
 const width = 900
 
 let browser: Browser, page: Page
@@ -1073,6 +1072,7 @@ async function changeHomePageLangIfNeeded(localPage: Page) {
 async function launchBrowser(puppeteerLaunch?: PuppeteerNodeLaunchOptions, loadCookies: boolean = true) {
     browser = await puppeteer.launch(puppeteerLaunch)
     page = await browser.newPage()
+    await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36');
     await page.setDefaultTimeout(timeout)
 
     if (loadCookies) {
@@ -1121,7 +1121,7 @@ async function login(
     const emailInputSelector = 'input[type="email"]'
     await localPage.waitForSelector(emailInputSelector)
 
-    await localPage.type(emailInputSelector, credentials.email, { delay: 100 })
+    await localPage.type(emailInputSelector, credentials.email, { delay: 200 })
     await localPage.keyboard.press('Enter')
 
     // check if 2fa code was sent to phone
