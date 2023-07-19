@@ -22,7 +22,7 @@ const maxTitleLen = 100
 const maxDescLen = 5000
 
 const timeout = 60000
-const height = 900
+const height = 1280
 const width = 900
 
 let browser: Browser, page: Page
@@ -1117,6 +1117,7 @@ async function login(
 
     await changeLoginPageLangIfNeeded(localPage)
 
+    await page.waitForTimeout(1000)
     const emailInputSelector = 'input[type="email"]'
     await localPage.waitForSelector(emailInputSelector)
 
