@@ -1130,16 +1130,17 @@ async function login(
     )
 
     if (isOnGoogleAppAuthPage) {
+        console.log('Google App Auth Code')
         const codeElement = await localPage.$('samp')
         const code = (await codeElement?.getProperty('textContent'))?.toString().replace('JSHandle:', '')
         code && messageTransport.userAction('Press ' + code + ' on your phone to login')
     }
     // password isnt required in the case that a code was sent via google auth
     else {
-        const passwordInputSelector = 'input[type="password"]:not([aria-hidden="true"])'
+        const passwordInputSelector = 'input[type="password"]'
         await localPage.waitForSelector(passwordInputSelector)
         await localPage.waitForTimeout(3000)
-        await localPage.type(passwordInputSelector, credentials.pass, { delay: 50 })
+        await localPage.type(passwordInputSelector, credentials.pass, { delay: 100 })
 
         await localPage.keyboard.press('Enter')
     }
