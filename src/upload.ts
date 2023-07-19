@@ -1070,6 +1070,7 @@ async function changeHomePageLangIfNeeded(localPage: Page) {
 async function launchBrowser(puppeteerLaunch?: PuppeteerNodeLaunchOptions, loadCookies: boolean = true) {
     browser = await puppeteer.launch(puppeteerLaunch)
     page = await browser.newPage()
+    await page.setBypassCSP(true)
     await page.setDefaultTimeout(timeout)
 
     if (loadCookies) {
@@ -1137,6 +1138,7 @@ async function login(
     }
     // password isnt required in the case that a code was sent via google auth
     else {
+        console.log('Waiting for Password Field')
         const passwordInputSelector = 'input[type="password"]'
         await localPage.waitForSelector(passwordInputSelector)
         await localPage.waitForTimeout(3000)
