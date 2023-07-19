@@ -1106,7 +1106,8 @@ async function login(
     messageTransport: MessageTransport,
     useCookieStore: boolean = true
 ) {
-    await localPage.goto(uploadURL)
+    //await localPage.goto(uploadURL)
+    await page.goto(uploadURL)
 
     if (!useCookieStore) {
         try {
