@@ -1118,7 +1118,7 @@ async function login(
     const emailInputSelector = 'input[type="email"]'
     await localPage.waitForSelector(emailInputSelector)
 
-    await localPage.type(emailInputSelector, credentials.email, { delay: 50 })
+    await localPage.type(emailInputSelector, credentials.email, { delay: 750 })
     await localPage.keyboard.press('Enter')
 
     // check if 2fa code was sent to phone
