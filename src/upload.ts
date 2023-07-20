@@ -1073,6 +1073,7 @@ async function changeHomePageLangIfNeeded(localPage: Page) {
 async function launchBrowser(puppeteerLaunch?: PuppeteerNodeLaunchOptions, loadCookies: boolean = true) {
     browser = await puppeteer.launch(puppeteerLaunch)
     page = await browser.newPage()
+    await page.setBypassCSP(true)
     await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36');
     await page.setExtraHTTPHeaders({ 
 		'user-agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 
