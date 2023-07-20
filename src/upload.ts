@@ -32,7 +32,7 @@ const invalidCharacters = ['<', '>']
 
 //const uploadURL = 'https://www.youtube.com/upload?persist_gl=1&gl=US&persist_hl=1&hl=en'
 //const uploadURL = 'https://youtube.com/upload'
-const uploadURL = 'nowsecure.nl/'
+const uploadURL = 'https://nowsecure.nl/'
 const homePageURL = 'https://www.youtube.com/?persist_gl=1&gl=US&persist_hl=1&hl=en'
 
 const defaultMessageTransport: MessageTransport = {
