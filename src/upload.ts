@@ -15,8 +15,7 @@ import path from 'path'
 const StealthPlugin = require('puppeteer-extra-plugin-stealth')()
 StealthPlugin.enabledEvasions.delete('iframe.contentWindow')
 StealthPlugin.enabledEvasions.delete('navigator.plugins')
-//puppeteer.use(StealthPlugin)
-puppeteer.use(StealthPlugin());
+puppeteer.use(StealthPlugin)
 
 const maxTitleLen = 100
 const maxDescLen = 5000
