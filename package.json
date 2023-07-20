@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "prettier": "^3.0.0",
-    "puppeteer": "^20.9.0",
+    "puppeteer": "^3.0.4",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2"
   },
