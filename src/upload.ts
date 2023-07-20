@@ -31,8 +31,8 @@ let cookiesFilePath: string
 const invalidCharacters = ['<', '>']
 
 //const uploadURL = 'https://www.youtube.com/upload?persist_gl=1&gl=US&persist_hl=1&hl=en'
-//const uploadURL = 'https://youtube.com/upload'
-const uploadURL = 'https://nowsecure.nl/'
+const uploadURL = 'https://youtube.com/upload'
+//const uploadURL = 'https://nowsecure.nl/'
 const homePageURL = 'https://www.youtube.com/?persist_gl=1&gl=US&persist_hl=1&hl=en'
 
 const defaultMessageTransport: MessageTransport = {
@@ -247,7 +247,7 @@ async function uploadVideo(videoJSON: Video, messageTransport: MessageTransport)
     await page.bringToFront()
     // Add the title value
     await textBoxes[0].focus()
-    await page.waitForTimeout(1000)
+    await page.setDefaultTimeout(1000)
     await textBoxes[0].evaluate((e) => ((e as any).__shady_native_textContent = ''))
     await textBoxes[0].type(title.substring(0, maxTitleLen))
     // Add the Description content
