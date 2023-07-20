@@ -124,7 +124,7 @@ async function uploadVideo(videoJSON: Video, messageTransport: MessageTransport)
     await page.evaluate(() => {
         window.onbeforeunload = null
     })
-    await page.goto(uploadURL)
+    await page.goto(uploadURL, { waitUntil: 'networkidle2' })
 
     const closeBtnXPath = "//*[normalize-space(text())='Close']"
     const selectBtnXPath = "//*[normalize-space(text())='Select files']"
