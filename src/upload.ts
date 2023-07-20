@@ -8,14 +8,16 @@ import {
     MessageTransport,
     GameData
 } from './types'
-import puppeteer from 'puppeteer-extra'
+
+//import puppeteer from 'puppeteer-extra'
+import puppeteer from 'puppeteer'
 import { PuppeteerNodeLaunchOptions, Browser, Page, ElementHandle } from 'puppeteer'
 import fs from 'fs-extra'
 import path from 'path'
-const StealthPlugin = require('puppeteer-extra-plugin-stealth')()
-StealthPlugin.enabledEvasions.delete('iframe.contentWindow')
-StealthPlugin.enabledEvasions.delete('navigator.plugins')
-puppeteer.use(StealthPlugin)
+//const StealthPlugin = require('puppeteer-extra-plugin-stealth')()
+//StealthPlugin.enabledEvasions.delete('iframe.contentWindow')
+//StealthPlugin.enabledEvasions.delete('navigator.plugins')
+//puppeteer.use(StealthPlugin)
 
 const maxTitleLen = 100
 const maxDescLen = 5000
